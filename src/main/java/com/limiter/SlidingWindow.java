@@ -15,7 +15,7 @@ public class SlidingWindow implements Limiter {
     }
 
     @Override
-    public synchronized void acquire() {
+    public void acquire() {
         long lastTime = executeArray[curIndex];
         if(lastTime!=0) {
             long sleep = TIME_IN_NANO_SECOND-(System.nanoTime()-lastTime);

@@ -23,7 +23,9 @@ public abstract class AbstractMarketDataProcessor {
     private static final int DEFAULT_BUFFER_SIZE = 256;
 
     private final Map<String, MarketData> marketDataMap;
+    // Record down the symbol sent time to make sure same symbol send once in second
     private final Map<String, LocalDateTime> sentTime;
+    // Record down the data updated time to prevent sent duplicate data
     private final Map<String, LocalDateTime> sentDataUpdatedTime;
 
     private final Limiter rateLimiter;

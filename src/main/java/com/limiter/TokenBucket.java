@@ -29,7 +29,7 @@ public class TokenBucket implements Limiter {
     }
 
     @Override
-    public synchronized void acquire() {
+    public void acquire() {
         while(token.get()<1) {
             try {
                 TimeUnit.MILLISECONDS.sleep(1_000/seq);
